@@ -40,47 +40,7 @@ app.get('/exam', authUser, (req, res) => {
     // res.send('exam page')
 })
 
-app.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password
 
-
-  // const user  = User.findAll({
-  //   attributes: [
-  //     'email', 'password'
-  //   ]
-  // });
-  // console.log(user);
-
-  const user  = User.findAll({
-    where: {
-      email: email,
-      password: password
-      
-    }
-  }).then((result) => {
-    if (result.length > 0) {
-      res.send(result)
-    }else {
-          res.send({message: "wrong user"})
-        }
-  });
-  // console.log(user);
-  // db.query(`SELECT * FROM user WHERE email = ${email} AND password = ${password}`,
-  // [email,password], (err, result) => {
-  //   console.log(result);
-  //   if (err) {
-  //     res.send({err:err})
-  //   }
-
-  //   if (result.length > 0) {
-  //     res.send(result)
-  //   }else {
-  //     res.send({message: "wrong user"})
-  //   }
-  // }
-  // )
-})
 
 
 

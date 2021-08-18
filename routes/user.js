@@ -39,4 +39,25 @@ router.get('/add',(req,res) => {
     .catch(err => console.log(err))
 })
 
+router.post("/login", (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password
+  
+  
+    User.findAll({
+      where: {
+        email: email,
+        password: password
+        
+      }
+    }).then((result) => {
+      if (result.length > 0) {
+        res.send(result)
+      }else {
+            res.send({message: "wrong user"})
+          }
+    }).catch(err => console.log(err));
+    
+  })
+
 module.exports = router
