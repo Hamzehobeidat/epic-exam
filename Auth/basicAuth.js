@@ -13,6 +13,8 @@ function authUser(req, res, next) {
         res.status(403)
         return res.send('You need to sign in')
         
+      }else {
+        res.send('exam page')
       }
 
      })
@@ -34,10 +36,14 @@ function authUser(req, res, next) {
             if (u.role !== role) {
           
               res.status(401)
-              // return res.send('Not allowed')
+              return res.send('Not allowed')
               
-              console.log('not allowed');
+              // console.log('not allowed');
   
+            }
+            else {
+              res.send('Admin Page')
+              console.log('dddddddddd');
             }
           }).catch(err => console.log(err))
          
